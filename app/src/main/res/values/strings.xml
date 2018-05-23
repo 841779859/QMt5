@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OHS</string>
+    <string name="icon_text1">搜索</string>
+    <string name="icon_text2">地图</string>
+    <string name="icon_text3">我</string>
+</resources>
