@@ -15,4 +15,9 @@
         <attr name="text"></attr>
         <attr name="text_size"></attr>
     </declare-styleable>
+    <attr name="textHighLight" format="color" />
+    <attr name="textNormal" format="color" />
+    <attr name="textWeak" format="color" />
+    <attr name="appBackGround" format="color" />
+
 </resources>

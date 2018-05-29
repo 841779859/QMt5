@@ -5,5 +5,5 @@ package com.example.asus.qmt5.Data;
  */
 
 public class data {
-    public static String url="http:// 192.168.43.150/QMt";
+    public static String url="http://192.168.1.106:8080";
 }

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\android workspace\QMt5\ocr_ui\libs"><file name="license.jar" path="D:\android workspace\QMt5\ocr_ui\libs\license.jar"/></source></dataSet><dataSet config="debug"><source path="D:\android workspace\QMt5\ocr_ui\src\debug\jniLibs"/></dataSet></merger>
