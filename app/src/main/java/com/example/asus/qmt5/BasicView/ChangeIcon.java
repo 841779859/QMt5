@@ -25,7 +25,7 @@ public class ChangeIcon extends View {
 
     private int lColor = 0xFF45C01A;    //定义默认颜色
     private Bitmap lIconBitmap;         //定义图标获取参数的Bitmap
-    private String lText = "微信";      //定义默认文字
+    private String lText = "OHS";      //定义默认文字
     //定义文字大小
     private int lTextSize = (int) TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP, 12, getResources().getDisplayMetrics());

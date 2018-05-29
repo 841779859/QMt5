@@ -6,14 +6,20 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.mapapi.SDKInitializer;
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainActivity extends FragmentActivity implements  ViewPager.OnPageChangeListener {
 
-    private ViewPager lViewPager;   //定义用于滚动视图的ViewPager
+    private NoScrollViewPager lViewPager;   //定义用于滚动视图的ViewPager
     //定义用于切换Fragment集合
     private List<Fragment> lTabs = new ArrayList<Fragment>();
     //定义主视图所显示的文本数组
@@ -23,10 +29,12 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
     //定义绘制图标控件集合
     private List<ChangeIcon> lTabIndicators = new
             ArrayList<ChangeIcon>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        //注意该方法要再setContentView方法之前实现
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
         initView();                         //调用初始化方法
         initDatas();                        //调用保存初始化数据的方法
@@ -67,7 +75,7 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
     }
     //初始化方法
     private void initView() {
-        lViewPager = (ViewPager) findViewById(R.id.id_viewpager);   //获取布局文件中滚动视图的ViewPager
+        lViewPager = (NoScrollViewPager) findViewById(R.id.id_viewpager);   //获取布局文件中滚动视图的ViewPager
         //获取自定义图标微信
         ChangeIcon one = (ChangeIcon) findViewById(R.id.id_changeicon_one);
         lTabIndicators.add(one);            //添加到集合当中
@@ -119,7 +127,7 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
     @Override
     public void onPageScrolled(int position, float positionOffset,
                                int positionOffsetPixels) {
-        if (positionOffset > 0)     //如果偏移值大于0
+     if (positionOffset > 0)     //如果偏移值大于0
         {
             ChangeIcon left = lTabIndicators.get(position);     //获取向左滑下标
             ChangeIcon right = lTabIndicators.get(position+1);  //获取向右滑下标
