@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asus.qmt5">
+    !--获取phone ID的权限
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    !--拍照权限--
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -71,18 +78,45 @@
             android:enabled="true"
             android:process=":remote" />
 
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
 
-        <activity android:name=".BasicView.MainActivity">
+        <activity android:name=".LoginandRegister.Login_password">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BasicView.MainActivity"></activity>
         <activity android:name=".Personalcenter.personalcenter" />
         <activity android:name=".Map.map" />
         <activity android:name=".SearchHome.searchhome"></activity>
+        <activity android:name=".LoginandRegister.Login_phonenumber"></activity>
+        <activity android:name=".LoginandRegister.Register"></activity>
+        <activity android:name=".LoginandRegister.Item"></activity>
+        <activity android:name=".LoginandRegister.Shimingrenzheng"></activity>
+        <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
+        <meta-data
+            android:name="Mob-AppKey"
+            android:value="1dbabe7c12eda" />
+        <meta-data
+            android:name="Mob-AppSecret"
+            android:value="b370ed760c20da6778991f6d6465cf92" />
+        <!--7.0以上的相机权限   authorities可随意编写-->
+        <provider
+            android:authorities="app.king"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
     </application>
 
 </manifest>

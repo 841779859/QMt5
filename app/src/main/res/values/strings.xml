@@ -1,6 +1,28 @@
 <resources>
-    <string name="app_name">OHS</string>
     <string name="icon_text1">搜索</string>
     <string name="icon_text2">地图</string>
     <string name="icon_text3">我</string>
+    <string name="xieyititle">ofo house用房协议（草案）</string>
+    <string name="app_name">ofo house</string>
+    <string name="xieyicontent1">欢迎来到ofo house。</string>
+    <string name="xieyicontent2">请您仔细阅读以下条款，如果您对本协议的任何条款表示异议，您可以选择不进入ofo house。当您注册成功，无论是进入ofo house，还是在ofo house上发布任何内容（即「内容」），均意味着您（即「用户」）完全接受本协议项下的全部条款。</string>
+    <string name="xieyititle1">使用规则</string>
+    <string name="xieyicontent3">1.用户注册成功后，ofo house将默认每个用户的手机号为该用户的用户帐号，该用户帐号由用户负责保管；用户应当对以其用户帐号进行的所有活动和事件负法律责任。</string>
+    <string name="xieyicontent4">2.用户须对在ofo house的注册信息的真实性、合法性、有效性承担全部责任，用户不得冒充他人；不得利用他人的名义发布任何信息并进行消费；不得恶意使用注册帐号做出评论；否则ofo house有权立即停止提供服务，由用户独自承担由此而产生的一切法律责任。</string>
+    <string name="xieyicontent5">3.用户承诺不得以任何方式利用ofo house直接或间接从事违反中国法律以及社会公德的行为，ofo house有权对违反上述承诺的内容予以删除。</string>
+    <string name="xieyicontent6">4.用户不得利用ofo house服务上载、复制、发布、传播如下内容：
+反对宪法所确定的基本原则的；
+危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+损害国家荣誉和利益的；
+煽动民族仇恨、民族歧视，破坏民族团结的；
+破坏国家宗教政策，宣扬邪教和封建迷信的；
+散布谣言，扰乱社会秩序，破坏社会稳定的；
+散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+侮辱或者诽谤他人，侵害他人合法权益的；
+含有法律、行政法规禁止的其他内容的信息。</string>
+    <string name="xieyititle2">个人隐私</string>
+    <string name="xieyicontent7">尊重用户个人隐私信息的私有性是ofo house的一贯原则，ofo house将通过技术手段、强化内部管理等办法充分保护用户的个人隐私信息，除法律或有法律赋予权限的政府部门要求或事先得到用户明确授权等原因外，ofo house保证不对外公开或向第三方透露用户个人隐私信息，或用户在使用服务时存储的非公开内容。</string>
+    <string name="xieyititle3">协议修改</string>
+    <string name="xieyicontent8">根据互联网的发展和有关法律、法规及规范性文件的变化，或者因业务发展需要，ofo house有权对本协议的条款作出修改或变更，一旦本协议的内容发生变动，ofo house将会直接在知乎网站上公布修改之后的协议内容，该公布行为视为ofo house已经通知用户修改内容。ofo house也可采用电子邮件或私信的传送方式，提示用户协议条款的修改、服务变更、或其它重要事项。如果不同意ofo house对本协议相关条款所做的修改，用户有权并应当停止使用ofo house。如果用户继续使用ofo house，则视为用户接受ofo house对本协议相关条款所做的修改。</string>
+
 </resources>
