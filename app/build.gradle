@@ -37,4 +37,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     implementation files('libs/ocr-sdk.jar')
     compile project(path: ':ocr_ui')
+    implementation files('libs/core-3.2.1.jar')
+
 }
