@@ -21,7 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.qmt5.BasicView.MainActivity;
+import com.example.asus.qmt5.LoginandRegister.bean.LoginInfo;
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -33,6 +36,7 @@ import java.util.Map;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import okhttp3.Call;
+import okhttp3.MediaType;
 
 import static com.example.asus.qmt5.Data.data.url;
 
@@ -50,13 +54,13 @@ public class Login_phonenumber extends AppCompatActivity {
     private TextView useitem;//使用条款
     private Button login;//登录
     private ProgressDialog dialog;//进度对话框
-    String password="";
+
     int i=30;// 获取验证码的时间
     private String loginTarget=url+"/xiangmu/servlet/LoginphoneServlet";
     String Tag="Login_phonenumber";
     String phoneID;
     String useraddress ;
-    String login_status;
+    int login_status;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_phonenumber);
@@ -68,7 +72,7 @@ public class Login_phonenumber extends AppCompatActivity {
         useitem=(TextView)findViewById(R.id.tv_termOfService1);
         login=(Button)findViewById(R.id.phonenumber_login);
 
-        EventHandler eventHandler=new EventHandler(){//创建一个线程
+        EventHandler eventHandler=new EventHandler(){
             public void afterEvent(int event, int result,Object data){
                 Message msg=new Message();
                 msg.arg1=event;
@@ -148,8 +152,8 @@ public class Login_phonenumber extends AppCompatActivity {
                 String code = inputcode.getText().toString();
                 if (!TextUtils.isEmpty(code)) {
                     dialog = ProgressDialog.show(Login_phonenumber.this, null, "正在验证...", false, true);
-                    //提交短信验证码
-                      SMSSDK.submitVerificationCode("+86", phonenumber, code);//国家号，手机号码，验证码
+                    //提交验证码和手机号码到Mob，回调在eventHandle中获得
+                    SMSSDK.submitVerificationCode("+86", phonenumber, code);//国家号，手机号码，验证码
 
                     // Toast.makeText(Login_phonenumber.this, "提交了注册信息:" + phonenumber, Toast.LENGTH_SHORT).show();
                 } else {
@@ -245,19 +249,14 @@ public class Login_phonenumber extends AppCompatActivity {
                                     WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                                     int ipAddress = wifiInfo.getIpAddress();
                                     useraddress = intToIp(ipAddress);
-                                    login_status="1";
-                                    Map<String,String> map=new HashMap<String,String>();
-                                    map.put("phoneID",phoneID);
-                                    map.put("phonenumber", phonenumber);
-                                    map.put("password", password);
-                                    map.put("useraddress",useraddress);
-                                    map.put("lastdatetime", lastdatetime);
-                                    map.put("login_status",login_status);
-
+                                    login_status=1;
+                                  String json=new Gson().toJson(new LoginInfo(phoneID,phonenumber, useraddress, lastdatetime, login_status));
+                                    Log.e(Tag, "json=" + json);
                                     OkHttpUtils
-                                            .post()
+                                            .postString()
                                             .url(loginTarget)
-                                            .params(map)
+                                            .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                                            .content(json)
                                             .build()
                                             .execute(new MyCall());
 

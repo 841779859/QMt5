@@ -17,6 +17,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
+import okhttp3.OkHttpClient;
 
 import static com.example.asus.qmt5.Data.data.url;
 import static com.example.asus.qmt5.ProduceScancode.zxingutils.addLogo;
@@ -43,6 +44,8 @@ public class ProduceActivity extends AppCompatActivity {
                     Toast.makeText(ProduceActivity.this, "请先输入需要生成二维码的内容", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
+
+
                     OkHttpUtils
                             .post()
                             .url(houseTarget)

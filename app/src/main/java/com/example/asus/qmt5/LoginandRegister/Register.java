@@ -12,11 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asus.qmt5.LoginandRegister.bean.Userinfo;
 import com.example.asus.qmt5.R;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
+import okhttp3.MediaType;
 
 import static com.example.asus.qmt5.Data.data.url;
 
@@ -89,13 +92,14 @@ public class Register extends AppCompatActivity {
                 editor.putString("password", password);
 // 4. 提交当前数据
                 editor.apply();
+                String json=new Gson().toJson(new Userinfo(phonenumber,password));
                  OkHttpUtils
-                        .post()
-                        .url(registerTarget)
-                        .addParams("phonenumber", phonenumber)
-                        .addParams("password", password)
-                        .build()
-                        .execute(new MyCall());
+                         .postString()
+                         .url(registerTarget)
+                         .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                         .content(json)
+                         .build()
+                         .execute(new MyCall());
 
             }
         });

@@ -68,12 +68,7 @@ public class Handinput extends AppCompatActivity {
 
 
     }
-public String send(){
-    house_ID=icv.getInputContent();
-    Log.e(Tag, "house_ID="+house_ID);
-        return house_ID;
 
-}
 
 
     private class MyCall extends StringCallback {
@@ -101,14 +96,9 @@ public String send(){
                 //  if(response!=null) {
                 if ( "exist".equals(response)) {
                     Intent it = new Intent();
-                    it.setClass(getApplicationContext(),Kaisuoma.class);
+                    it.setClass(getApplicationContext(),ShowHouseMessage.class);
+                    it.putExtra("codedata",house_ID);
                     startActivity(it);
-                }else if("1".equals(response)){
-                    Toast.makeText(Handinput.this,"该房间正在被使用！", Toast.LENGTH_SHORT).show();
-                }else if("2".equals(response)){
-                    Toast.makeText(Handinput.this,"该房间正在维修！", Toast.LENGTH_SHORT).show();
-                }else if("3".equals(response)){
-                    Toast.makeText(Handinput.this,"该房间已经不再被我们使用！", Toast.LENGTH_SHORT).show();
                 }else if("notexist".equals(response)){
                     Toast.makeText(Handinput.this,"请确认输入了正确的房间编号！", Toast.LENGTH_SHORT).show();
                 }

@@ -1,15 +1,20 @@
 package com.example.asus.qmt5.BasicView;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.mapapi.SDKInitializer;
+import com.example.asus.qmt5.LoginandRegister.Login_password;
 import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 
@@ -29,6 +34,9 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
     //定义绘制图标控件集合
     private List<ChangeIcon> lTabIndicators = new
             ArrayList<ChangeIcon>();
+    Button out;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +91,8 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
         lTabIndicators.add(two);
         ChangeIcon three = (ChangeIcon) findViewById(R.id.id_changeicon_three);
         lTabIndicators.add(three);
-
+        out=(Button)findViewById(R.id.out);
+        out.setOnClickListener(onClick);
         one.setOnClickListener(onClick);           //指定单击事件
         two.setOnClickListener(onClick);
         three.setOnClickListener(onClick);
@@ -106,9 +115,23 @@ public class MainActivity extends FragmentActivity implements  ViewPager.OnPageC
                     lTabIndicators.get(2).setIconAlpha(1.0f);
                     lViewPager.setCurrentItem(2, false);
                     break;
+                case R.id.out:
+                    resetsp();
+                    Intent intent=new Intent(MainActivity.this, Login_password.class);
+                    startActivity(intent);
+                    MainActivity.this.finish();
+
+
             }
         }
     };
+
+    private void resetsp() {
+        sp= PreferenceManager.getDefaultSharedPreferences(this);
+        editor=sp.edit();
+        editor.putBoolean("main",false);
+        editor.apply();
+    }
 
     /**
      * 重置其他图标颜色

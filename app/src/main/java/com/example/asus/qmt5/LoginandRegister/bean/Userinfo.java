@@ -25,6 +25,7 @@ public class Userinfo {
         this.phonenumber=phonenumber;
 
     }
+
    public Userinfo(String phonenumber,  String username, String IDcardnum, String realname, String birthday, String sex, String email, int permission){
        super();
        this.phonenumber=phonenumber;

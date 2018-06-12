@@ -3,6 +3,7 @@ package com.example.asus.qmt5.Scan;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +11,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.asus.qmt5.BasicView.MainActivity;
+import com.example.asus.qmt5.LoginandRegister.Login_phonenumber;
+import com.example.asus.qmt5.LoginandRegister.Shimingrenzheng;
 import com.example.asus.qmt5.R;
 
+import com.example.asus.qmt5.Scan.bean.HouseInfo;
 import com.example.asus.qmt5.Scan.zxing.app.CaptureActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -22,11 +34,12 @@ import static com.example.asus.qmt5.Data.data.url;
 
 public class ScanActivity extends AppCompatActivity implements PermissionManager.PermissionsResultListener {
 //https://blog.csdn.net/IThtt/article/details/77084448参考博客
-private String houseTarget=url+"/xiangmu/servlet/ScanServlet";
 String Tag="ScanActivity";
 ///////////////////6.2
-String codeData;
-
+String codeData,house_ID;
+    List<HouseInfo>house;
+    String phonenumber;
+    String scanTarget=url+"/xiangmu/servlet/CheckServlet";
 /////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,36 +52,18 @@ String codeData;
 
     public void onQRCodeClick(View view) {
         //启动二维码扫描的页面功能
-        Intent intent = new Intent(this, CaptureActivity.class);
-        startActivityForResult(intent, REQUEST_QRCODE);
+       /* SharedPreferences pref=getSharedPreferences("userinfo",MODE_PRIVATE);
+        phonenumber=pref.getString("phonenumber","");
+        Log.e(Tag,"phone s="+phonenumber);
+        */
+       phonenumber="15797695590";
+        OkHttpUtils.post()
+                .url(scanTarget)
+                .addParams("phonenumber",phonenumber)
+                .build()
+                .execute(new MyCall());
+
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_QRCODE) {
-            switch (resultCode) {
-                case CaptureActivity.RESULT_CODE_DECODE:
-                case Activity.RESULT_OK:
-                     codeData = data.getStringExtra(CaptureActivity.EXTRA_DATA);
-                    codeData=codeData.substring(0,13);
-                    codeData=codeData.substring(5);
-                    Log.d(Tag,"codedata="+codeData);
-                    OkHttpUtils
-                            .post()
-                            .url(houseTarget)
-                            .addParams("code",codeData)
-                            .build()
-                            .execute(new MyCall());
-
-                   // Intent intent=new Intent(ScanActivity.this,Kaisuoma.class);
-                   // startActivity(intent);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
     private class MyCall extends StringCallback {
 
         @Override
@@ -85,34 +80,68 @@ String codeData;
 
 
         public void onResponse(String response, int id)
-        {
-            Log.e(Tag, "onResponse：complete=" + response);
-
-            if(response!=null) {
-                if ( "exist".equals(response)) {
-                    Intent it = new Intent();
-                    it.setClass(getApplicationContext(),Kaisuoma.class);
-                    ////////////////6.2
-
-                    it.putExtra("codedata",codeData);
-                    Log.e(Tag, "codeData"+codeData);
-                    //////////////
-                    startActivity(it);//界面跳转
-                }else if("1".equals(response)){
-                    Toast.makeText(ScanActivity.this,"该房间正在被使用！", Toast.LENGTH_SHORT).show();
-                }else if("2".equals(response)){
-
-                    Toast.makeText(ScanActivity.this,"该房间正在维修！", Toast.LENGTH_SHORT).show();
-                }else if("3".equals(response)){
-                    Toast.makeText(ScanActivity.this,"该房间已经不再被我们使用！", Toast.LENGTH_SHORT).show();
-                }else if("notexist".equals(response)){
-                    Toast.makeText(ScanActivity.this,"请扫描ofohouse的二维码！", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
+        { Log.e(Tag,"onresponse="+response);
+        if("1".equals(response)) {
+            Intent intent = new Intent(ScanActivity.this, CaptureActivity.class);
+            startActivityForResult(intent, REQUEST_QRCODE);
+        }else{
+            Toast.makeText(ScanActivity.this,"您还未进行实名认证，请先完成实名认证！",Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(ScanActivity.this, Shimingrenzheng.class);
+            startActivity(intent);
+        }
 
         }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_QRCODE) {
+            switch (resultCode) {
+                case CaptureActivity.RESULT_CODE_DECODE:
+                case Activity.RESULT_OK:
+                     codeData = data.getStringExtra(CaptureActivity.EXTRA_DATA);
+                    codeData=codeData.substring(9);
+                    codeData=codeData.substring(0,codeData.length()-1);
+
+                    getListOrderByArray(codeData);
+
+
+
+                    Log.d(Tag,"house_ID="+house_ID);
+                    Intent intent=new Intent(ScanActivity.this,ShowHouseMessage.class);
+                    intent.putExtra("codedata",house_ID);
+                    startActivity(intent);
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    public List<HouseInfo> getListOrderByArray(String codeData){
+        house=new ArrayList<HouseInfo>();
+        try{
+            JSONArray jsonArray=new JSONArray(codeData);
+            Log.e("ceshi",jsonArray.length()+"长度");
+            for(int i=0;i<jsonArray.length();i++){
+                JSONObject jsonObject=(JSONObject)jsonArray.get(i);
+                house_ID=jsonObject.optString("house_ID");
+
+                Log.e(Tag,"house_ID="+house_ID);
+
+                house.add(new HouseInfo(house_ID));
+
+            }
+            Log.e(Tag,"houseList1="+house);
+            return house;
+
+        }catch(JSONException e){
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Log.e(Tag,"houseList2="+house);
+        return house;
 
     }
     @Override

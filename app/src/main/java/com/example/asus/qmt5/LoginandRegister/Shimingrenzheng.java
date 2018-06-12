@@ -1,22 +1,12 @@
 package com.example.asus.qmt5.LoginandRegister;
 
-import android.Manifest;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.nfc.Tag;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
+
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,10 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.ocr.sdk.OCR;
@@ -48,12 +37,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.MediaType;
@@ -64,9 +48,9 @@ import static com.example.asus.qmt5.Data.data.url;
  * Created by 唇角上扬~勾勒一抹笑 on 2018/5/21.
  */
 
-public class Shimingrenzheng extends AppCompatActivity {
+public class  Shimingrenzheng extends AppCompatActivity {
     private EditText nicknameE, idcardnumberE, realnameE, birthdateE, emailaddressE;
-    
+    private TextView jump;
     private RadioGroup sexR;
     private RadioButton men,women;
     private Button choosebirth,submit,takephoto;
@@ -79,7 +63,6 @@ public class Shimingrenzheng extends AppCompatActivity {
     Calendar calendar;
     DatePickerDialog dialog;
     private static final int REQUEST_CODE_CAMERA = 102;
-
     boolean flag,flag1;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +77,7 @@ public class Shimingrenzheng extends AppCompatActivity {
         women=(RadioButton)findViewById(R.id.women);
         choosebirth=(Button)findViewById(R.id.choose_birth);
         submit=(Button)findViewById(R.id.submit);
-
+        jump=(TextView)findViewById(R.id.jump);
         takephoto=(Button)findViewById(R.id.buttonCamera) ;
 
         sexR.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -107,27 +90,38 @@ public class Shimingrenzheng extends AppCompatActivity {
                 }
             }
         });
-
+         jump.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent=new Intent(Shimingrenzheng.this,MainActivity.class);
+                 startActivity(intent);
+             }
+         });
      
         takephoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Shimingrenzheng.this, CameraActivity.class);
+                Intent intent = new Intent(Shimingrenzheng.this, CameraActivity.class);//调用camera对象
+                //设置临时存储
                 intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                         FileUtil.getSaveFile(getApplication()).getAbsolutePath());
                 intent.putExtra(CameraActivity.KEY_NATIVE_ENABLE, true);
                 // KEY_NATIVE_MANUAL设置了之后CameraActivity中不再自动初始化和释放模型
                 // 请手动使用CameraNativeHelper初始化和释放模型
                 // 推荐这样做，可以避免一些activity切换导致的不必要的异常
+                //调用身份证识别的Activity
                 intent.putExtra(CameraActivity.KEY_NATIVE_MANUAL, true);
+                // 调用拍摄身份证正面（不带本地质量控制）activity
                 intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
+               //通过参数确定接口类型
                 startActivityForResult(intent, REQUEST_CODE_CAMERA);
             }
         });
 
 
         // 初始化
+        // initAccessTokenWithAkSk成功返回后才能获取License授权本地质量控制能力
         initAccessTokenWithAkSk();
 
 
@@ -203,11 +197,11 @@ public class Shimingrenzheng extends AppCompatActivity {
 
     }
     private void initAccessTokenWithAkSk() {
-        OCR.getInstance().initAccessToken(new OnResultListener<AccessToken>() {
+        OCR.getInstance().initAccessToken(new OnResultListener<AccessToken>() {//初始化
             @Override
             public void onResult(AccessToken result) {
 
-                // 本地自动识别需要初始化
+                   // 本地自动识别需要初始化
                         initLicense();
 
                         Log.d("Shimingrenzheng", "onResult: " + result.toString());
@@ -264,15 +258,18 @@ public class Shimingrenzheng extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {//第三个参数：一个Intent对象，带有返回的数据。可以通过data.getXxxExtra( );方法来获取指定数据类型的数据，
         super.onActivityResult(requestCode, resultCode, data);
-
+        //判断拍摄的类型（身份证）
         if (requestCode == REQUEST_CODE_CAMERA && resultCode == Activity.RESULT_OK) {
             if (data != null) {
+                //获取调用参数
                 String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);
+              //通过临时文件获取拍摄的图片
                 String filePath = FileUtil.getSaveFile(getApplicationContext()).getAbsolutePath();
                 if (!TextUtils.isEmpty(contentType)) {
-                    if (CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)) {
+                    if (CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)) {//判断是否是身份证正面
+                     //调用解析身份证的接口
                         recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
                     }
                 }
@@ -288,7 +285,7 @@ public class Shimingrenzheng extends AppCompatActivity {
      * @param filePath   图片路径
      */
     private void recIDCard(String idCardSide, String filePath) {
-        IDCardParams param = new IDCardParams();
+        IDCardParams param = new IDCardParams();//初始化身份证文字识别类
         param.setImageFile(new File(filePath));
         // 设置身份证正反面
         param.setIdCardSide(idCardSide);
@@ -300,7 +297,6 @@ public class Shimingrenzheng extends AppCompatActivity {
             @Override
             public void onResult(IDCardResult result) {
                 if (result != null) {
-
 
                     if (result.getName() != null) {
                         namei = result.getName().toString();

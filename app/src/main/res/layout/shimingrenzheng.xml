@@ -3,12 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="实名认证"
-        android:gravity="center"
-        android:textSize="35dp"/>
+    <LinearLayout style="@style/top_nav" >
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/shiming"
+            android:textSize="35sp" />
+
+
+        <TextView
+            android:id="@+id/jump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/clickjump"
+            />
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -18,7 +31,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="昵         称：" />
+            android:text="@string/nick_name" />
         <EditText
             android:id="@+id/nickname"
             android:layout_width="200dp"
@@ -33,7 +46,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="身份证号：" />
+            android:text="@string/idnum" />
         <EditText
             android:id="@+id/idcard_number"
             android:layout_width="200dp"
@@ -48,7 +61,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="真实姓名：" />
+            android:text="@string/real_name" />
         <EditText
             android:id="@+id/real_name"
             android:layout_width="200dp"
@@ -63,12 +76,12 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="出生日期：" />
+            android:text="@string/birthday" />
         <Button
             android:id="@+id/choose_birth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="点我选择"
+            android:text="@string/click_choose"
             />
         <EditText
             android:id="@+id/birthdate"
@@ -85,7 +98,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="性        别：" />
+            android:text="@string/choose_sex" />
         <RadioGroup
             android:id="@+id/sex"
             android:layout_width="wrap_content"
@@ -94,12 +107,12 @@
           android:id="@+id/women"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="女"/>
+          android:text="@string/women"/>
         <RadioButton
             android:id="@+id/men"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="男"/>
+            android:text="@string/men"/>
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
@@ -111,7 +124,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="邮         箱：" />
+            android:text="@string/email_address" />
        <EditText
            android:id="@+id/email_address"
            android:layout_width="200dp"
@@ -127,14 +140,14 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="身份证正面图：" />
+            android:text="@string/IDcardpic" />
 
 
         <Button
             android:id="@+id/buttonCamera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请对准您的身份证正面拍照" />
+            android:text="@string/take_IDpic" />
 
     </LinearLayout>
 

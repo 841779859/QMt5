@@ -54,5 +54,10 @@
             weimain:text_size="12sp"
             weimain:color="#ff45c01a" />
     </LinearLayout>
+    <Button
+        android:id="@+id/out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="退出"/>
 
 </LinearLayout>

@@ -15,7 +15,7 @@
         android:layout_weight="1"
 
         android:drawableTop="@drawable/selector_ic_handinput"
-        android:text="手动输入"
+        android:text="@string/hand_input"
         android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/sp_16" />
     <!--
