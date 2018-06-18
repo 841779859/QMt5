@@ -93,7 +93,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     private static final String TAG = CaptureActivity.class.getSimpleName();//定义Tag标记
 
-    private static final long INTENT_RESULT_DURATION = 1500L;
+    private static final long INTENT_RESULT_DURATION = 1500L;//结果持续时间
     private static final long BULK_MODE_SCAN_DELAY_MS = 1000L;
     private static final String PRODUCT_SEARCH_URL_PREFIX = "http://www.google";
     private static final String PRODUCT_SEARCH_URL_SUFFIX = "/m/products/scan";
@@ -120,7 +120,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private TextView btnFlash;
    // private TextView btnEncode;
     private TextView handinput;
-    private boolean isFlash;
+    private boolean isFlash;//手电筒是否打开
 
     @Override
     public void onClick(View view) {
@@ -364,7 +364,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
      * @param //result
      * @param barcode
      */
-    public void handleDecode(Result rawResult, Bitmap barcode) {
+    public void handleDecode(Result rawResult/*扫描获取的信息*/, Bitmap barcode) {
         inactivityTimer.onActivity();
         lastResult = rawResult;
         if (barcode == null) {
@@ -549,7 +549,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private Uri uri;
 //解析扫描结果
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {//请求码，结果码，数据
         super.onActivityResult(requestCode, resultCode, data);
         //返回选择的需要扫描二维码的图片
         if (resultCode == RESULT_OK) {
@@ -564,7 +564,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                         Looper.prepare();
                         Toast.makeText(getApplicationContext(), "图片格式有误", Toast.LENGTH_SHORT).show();
                         Looper.loop();
-                    } else {
+                    } else {//带参传回ScanActivity
                         // 数据返回，在这里去处理扫码结果
                         String recode = (result.toString());
                         Intent data = new Intent();

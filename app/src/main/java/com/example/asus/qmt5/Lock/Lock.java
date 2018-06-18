@@ -66,8 +66,10 @@ String Tag="Lock";
             if("same".equals(response)){
                 Toast.makeText(Lock.this,"您已打开门锁，现在开始计费", Toast.LENGTH_SHORT).show();
 
-            }else{
+            }else if("different".equals(response)){
                 Toast.makeText(Lock.this,"开锁码错误", Toast.LENGTH_SHORT).show();
+            }else if("chaoshi".equals(response)){
+                Toast.makeText(Lock.this,"开锁码超时，请重新获取", Toast.LENGTH_SHORT).show();
             }
 
 

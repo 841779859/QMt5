@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -24,11 +25,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
     </style>
+
     <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/rating_bj</item>
         <item name="android:minHeight">18dp</item>
         <item name="android:maxHeight">18dp</item>
     </style>
+
     <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
 
         <!-- 背景透明 -->
@@ -52,14 +55,17 @@
         <item name="android:windowEnterAnimation">@anim/actionsheet_dialog_in</item>
         <item name="android:windowExitAnimation">@anim/actionsheet_dialog_out</item>
     </style>
+
     <style name="text_center">
         <item name="android:layout_centerInParent">true</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="text_middle_center" parent="text_center">
         <item name="android:textColor">?attr/textHighLight</item>
         <item name="android:textSize">@dimen/sp_middle_i</item>
     </style>
+
     <style name="WhiteTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimaryWhite</item>
         <item name="colorPrimaryDark">@color/colorPrimaryWhiteDark</item>
@@ -90,8 +96,6 @@
         <item name="android:textColor">?attr/textHighLight</item>
         <item name="android:textSize">@dimen/sp_big_i</item>
     </style>
-
-
 
 
 </resources>

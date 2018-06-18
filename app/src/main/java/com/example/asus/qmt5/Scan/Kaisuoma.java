@@ -6,12 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.asus.qmt5.LoginandRegister.Login_password;
 import com.example.asus.qmt5.R;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import okhttp3.Call;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
+import okhttp3.Call;
 import static com.example.asus.qmt5.Data.data.url;
 
 
@@ -24,12 +33,13 @@ public class Kaisuoma extends AppCompatActivity {
     String Tag="kaisuoma";
     String kaisuoTarget=url+"/xiangmu/servlet/suijiServlet";
     private TextView kaisuoma;
+    String houseID;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kaisuoma);
         kaisuoma=(TextView)findViewById(R.id.kaisuoma);
         Intent intent=getIntent();
-        String houseID=intent.getStringExtra("codedata");
+         houseID=intent.getStringExtra("codedata");
         Log.e(Tag, "houseID="+houseID);
         OkHttpUtils
                 .post()
@@ -48,9 +58,9 @@ public class Kaisuoma extends AppCompatActivity {
 
         {
 
+
             Log.e(Tag, "onError"+e.getMessage());
             e.printStackTrace();
-
 
         }
 
@@ -60,8 +70,9 @@ public class Kaisuoma extends AppCompatActivity {
             Log.e(Tag, "onResponse：complete=" + response);
             kaisuoma.setText(response);
 
-
         }
 
     }
+
+
 }

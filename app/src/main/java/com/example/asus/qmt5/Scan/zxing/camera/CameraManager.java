@@ -145,7 +145,7 @@ public final class CameraManager {
 	 * @throws IOException
 	 *             Indicates the camera driver failed to open.
 	 */
-	public void openDriver(SurfaceHolder holder) throws IOException {
+	public void openDriver(SurfaceHolder holder) throws IOException {//打开相机驱动，初始化硬件参数
 		if (camera == null) {
 			camera = Camera.open();
 			if (camera == null) {
@@ -170,7 +170,7 @@ public final class CameraManager {
 	/**
 	 * Closes the camera driver if still in use.
 	 */
-	public void closeDriver() {
+	public void closeDriver() {//关闭驱动
 		if (camera != null) {
 			FlashlightManager.disableFlashlight();
 			camera.release();
@@ -181,7 +181,7 @@ public final class CameraManager {
 	/**
 	 * Asks the camera hardware to begin drawing preview frames to the screen.
 	 */
-	public void startPreview() {
+	public void startPreview() {//开始预览
 		if (camera != null && !previewing) {
 			camera.startPreview();
 			previewing = true;
@@ -191,7 +191,7 @@ public final class CameraManager {
 	/**
 	 * Tells the camera to stop drawing preview frames.
 	 */
-	public void stopPreview() {
+	public void stopPreview() {//结束预览
 		if (camera != null && previewing) {
 			if (!useOneShotPreviewCallback) {
 				camera.setPreviewCallback(null);
@@ -232,7 +232,7 @@ public final class CameraManager {
 	 * @param message
 	 *            The message to deliver.
 	 */
-	public void requestAutoFocus(Handler handler, int message) {
+	public void requestAutoFocus(Handler handler, int message) {//获取焦点
 		if (camera != null && previewing) {
 			autoFocusCallback.setHandler(handler, message);
 			// Log.d(TAG, "Requesting auto-focus callback");
@@ -399,7 +399,7 @@ public final class CameraManager {
 	/**
 	 * 通过设置Camera关闭闪光灯
 	 * 
-	 * @param mCamera
+	 *
 	 */
 	public void turnLightOff() {
 		if (camera == null) {

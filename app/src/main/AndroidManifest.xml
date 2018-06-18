@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asus.qmt5">
-    <!--扫码权限-->
+
+    <!-- 扫码权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <!--获取phone ID的权限-->
+    <!-- 获取phone ID的权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--拍照权限-->
+    <!-- 拍照权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,7 +20,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--获取短信验证码的权限-->
+    <!-- 获取短信验证码的权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -30,7 +31,7 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--读取launcher.db内容的权限定义-->
+    <!-- 读取launcher.db内容的权限定义 -->
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
 
     <!-- 获取锁屏权限 -->
@@ -120,6 +121,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".Scan.ShowHouseMessage" />
         <activity
             android:name=".Scan.zxing.app.CaptureActivity"
@@ -133,8 +136,8 @@
         <activity android:name=".LoginandRegister.Login_phonenumber" />
         <activity android:name=".LoginandRegister.Register" />
         <activity android:name=".LoginandRegister.Item" />
-      <activity android:name=".LoginandRegister.Shimingrenzheng" />
-        <activity android:name=".LoginandRegister.Login_password"></activity>
+        <activity android:name=".LoginandRegister.Shimingrenzheng" />
+        <activity android:name=".LoginandRegister.Login_password" />
 
         <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
 

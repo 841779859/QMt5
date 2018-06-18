@@ -52,11 +52,10 @@ String codeData,house_ID;
 
     public void onQRCodeClick(View view) {
         //启动二维码扫描的页面功能
-       /* SharedPreferences pref=getSharedPreferences("userinfo",MODE_PRIVATE);
+        SharedPreferences pref=getSharedPreferences("userinfo",MODE_PRIVATE);
         phonenumber=pref.getString("phonenumber","");
         Log.e(Tag,"phone s="+phonenumber);
-        */
-       phonenumber="15797695590";
+
         OkHttpUtils.post()
                 .url(scanTarget)
                 .addParams("phonenumber",phonenumber)
@@ -93,14 +92,15 @@ String codeData,house_ID;
         }
     }
 
-
+/**二维码扫描结果
+ * */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_QRCODE) {
             switch (resultCode) {
                 case CaptureActivity.RESULT_CODE_DECODE:
                 case Activity.RESULT_OK:
-                     codeData = data.getStringExtra(CaptureActivity.EXTRA_DATA);
+                     codeData = data.getStringExtra(CaptureActivity.EXTRA_DATA);//codeData表示二维码封装的内容
                     codeData=codeData.substring(9);
                     codeData=codeData.substring(0,codeData.length()-1);
 

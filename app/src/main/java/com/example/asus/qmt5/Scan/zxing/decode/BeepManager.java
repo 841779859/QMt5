@@ -55,10 +55,13 @@ public final class BeepManager {
     public void updatePrefs() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         playBeep = shouldBeep(prefs, activity);
-        vibrate = prefs.getBoolean(activity.getString(R.string.preferences_vibrate), false);
+        vibrate = prefs.getBoolean(activity.getString(R.string.preferences_vibrate), false);//默认不震动
         if (playBeep && mediaPlayer == null) {
             // The volume on STREAM_SYSTEM is not adjustable, and users found it too loud,
             // so we now play on the music stream.
+            // 如果没有在设置setVolumeControlStream为AudioManager.STREAM_MUSIC，
+            // 在没有播放的情况下，音量键控制的是Ring大小，在播放的时候就会变成控制music的大小
+            // 如果设置了，则在没有播放的情况下也是控制music大小
             activity.setVolumeControlStream(AudioManager.STREAM_MUSIC);
             mediaPlayer = buildMediaPlayer(activity);
         }
@@ -73,7 +76,10 @@ public final class BeepManager {
             vibrator.vibrate(VIBRATE_DURATION);
         }
     }
-
+    /**
+     * 判断是否能够在识别成功时发出声音，如果用户选择了静音模式或者震动模式，则返回false表示不发出声音
+     *
+     */
     private static boolean shouldBeep(SharedPreferences prefs, Context activity) {
         boolean shouldPlayBeep = prefs.getBoolean(activity.getString(R.string.preferences_play_beep), true);
         if (shouldPlayBeep) {
@@ -88,19 +94,19 @@ public final class BeepManager {
 
     private static MediaPlayer buildMediaPlayer(Context activity) {
         MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);//最好和上面的设置一致，否则音量键控制的音频流和播放声音的音频流不一致
         // When the beep has finished playing, rewind to queue up another one.
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {//播放结束的监听
             public void onCompletion(MediaPlayer player) {
                 player.seekTo(0);
             }
         });
-
+//得到beep.ogg文件
         AssetFileDescriptor file = activity.getResources().openRawResourceFd(R.raw.beep);
         try {
             mediaPlayer.setDataSource(file.getFileDescriptor(), file.getStartOffset(), file.getLength());
             file.close();
-            mediaPlayer.setVolume(BEEP_VOLUME, BEEP_VOLUME);
+            mediaPlayer.setVolume(BEEP_VOLUME, BEEP_VOLUME);//音量大小，这两个字段要求在0.0~~1.0之间
             mediaPlayer.prepare();
         } catch (IOException ioe) {
             Log.w(TAG, ioe);

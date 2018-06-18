@@ -19,13 +19,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.asus.qmt5.R;
-
-/**
- * description: 自定义view 验证码 输入框
- * Created by Jack on 2017/6/2.
- * 邮箱：839539179@qq.com
- */
-
 public class VerificationCodeView extends RelativeLayout {
 
     private LinearLayout containerEt;
