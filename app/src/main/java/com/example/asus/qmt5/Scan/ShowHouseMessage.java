@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.asus.qmt5.BasicView.MainActivity;
+
+import com.example.asus.qmt5.House.YuYue;
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 import com.example.asus.qmt5.Scan.bean.HouseInfo;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -36,7 +38,7 @@ public class ShowHouseMessage extends AppCompatActivity {
     private Button order,live;
     String house_name,house_addr,house_price,house_state,house_intorduce,houseID;
     String Tag="ShowHouseMessage";
-    String ShowHouseMessageurl=url+"/xiangmu/servlet/ShowHouseMessageServlet";
+    String ShowHouseMessageurl=url+"/servlet/ShowHouseMessageServlet";
     List<HouseInfo>house;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,7 @@ public class ShowHouseMessage extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent  intent=new Intent(ShowHouseMessage.this,MainActivity.class);
+                Intent  intent=new Intent(ShowHouseMessage.this,YuYue.class);
                 startActivity(intent);
             }
         });

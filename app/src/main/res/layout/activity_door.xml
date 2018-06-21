@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="#3F51B5"
+    android:id="@+id/ni5">
+    <Button
+        android:id="@+id/hkpb9"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+         android:background="@drawable/img04"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hao2"
+        android:text="@string/doorbad"
+        android:textSize="50px"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/hkpb9"
+        android:layout_toEndOf="@+id/hkpb9" />
+
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ni6">
+        <ImageButton
+            android:layout_width="384dp"
+            android:layout_height="180dp"
+            android:id="@+id/ll4"
+            android:background="@drawable/img05"
+            android:layout_marginTop="54dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ni11">
+        <EditText
+            android:id="@+id/add_content"
+            android:layout_width="384dp"
+            android:layout_height="100dp"
+            android:enabled="true"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:minLines="8"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:background="#DDDDDD"
+            android:layout_marginTop="230dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+        </EditText>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="80dp">
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/ni8">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/hkpb14"
+            android:background="#FFF0F5"
+            android:text="立即提交" />
+    </RelativeLayout>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:onClick="show"
+        android:background="@drawable/phone"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="30dp" />
+</RelativeLayout>

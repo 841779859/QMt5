@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.asus.qmt5.BasicView.MainActivity;
+
 import com.example.asus.qmt5.LoginandRegister.bean.LoginInfo;
 import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
@@ -31,7 +31,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
+
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -56,7 +56,7 @@ public class Login_phonenumber extends AppCompatActivity {
     private ProgressDialog dialog;//进度对话框
 
     int i=30;// 获取验证码的时间
-    private String loginTarget=url+"/xiangmu/servlet/LoginphoneServlet";
+    private String loginTarget=url+"/servlet/LoginphoneServlet";
     String Tag="Login_phonenumber";
     String phoneID;
     String useraddress ;
@@ -78,7 +78,7 @@ public class Login_phonenumber extends AppCompatActivity {
                 msg.arg1=event;
                 msg.arg2=result;
                 msg.obj=data;
-                handler.sendMessage(msg);
+                handler.sendMessage(msg);//立即发送信息，解析返回结果
             }
         };
 
@@ -188,7 +188,7 @@ public class Login_phonenumber extends AppCompatActivity {
 
                 //  if(response!=null) {
                 if ( "success".equals(response)) {
-                    Intent intent=new Intent(Login_phonenumber.this,MainActivity.class);
+                    Intent intent=new Intent(Login_phonenumber.this,map.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(Login_phonenumber.this,"你还未进行注册", Toast.LENGTH_SHORT).show();
@@ -269,7 +269,7 @@ public class Login_phonenumber extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     showDailog("验证失败");
-                                    dialog.dismiss();
+                                    dialog.dismiss();//释放对话，否则内存泄漏
                                     //     Toast.makeText(MainActivity.this, "验证失败", Toast.LENGTH_SHORT).show();
                                 }
                             });

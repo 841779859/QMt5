@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".House.Hours">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/hours_top">
+        <Button
+            android:id="@+id/hours_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/img04"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mingcheng0"
+            android:text="@string/fang_name"
+            android:textSize="50px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/hours_back"
+            android:layout_toEndOf="@+id/hours_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/hours_top"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" >
+            </android.support.v4.view.ViewPager>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+                <TextView
+                    android:id="@+id/NewsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="热烈欢迎"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="100dp"
+                    android:textSize="15sp"
+                    android:textColor="#fff"/>
+                <LinearLayout
+                    android:id="@+id/dotgroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="23dp"
+                    android:paddingRight="10dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="160dp"
+                    android:layout_marginRight="140dp">
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rzsj"
+            android:textSize="38px"
+            android:id="@+id/check_hours"
+            android:layout_above="@+id/jishi"
+            android:layout_centerHorizontal="true" />
+        <Chronometer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jishi"
+            android:textSize="150px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="19dp" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25px"
+        android:layout_marginTop="430dp"
+        android:background="#DDDDDD" />
+
+    <RelativeLayout
+        android:layout_width="390dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/tui_fang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="42dp"
+            android:background="#FA8072"
+            android:text="退房" />
+
+        <Button
+            android:id="@+id/baoxiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tui_fang"
+            android:layout_marginLeft="240dp"
+            android:background="#FA8072"
+            android:text="报修" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.asus.qmt5.Lock;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.asus.qmt5.House.Hours;
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -21,7 +24,7 @@ public class Lock extends AppCompatActivity {
     private Button sure;
 
 private String house_ID="00000001";
-String Target=url+"/xiangmu/servlet/YanzhengServlet";
+String Target=url+"/servlet/YanzhengServlet";
 String Tag="Lock";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,9 @@ String Tag="Lock";
             Log.e(Tag, "onResponse：complete=" + response);
             if("same".equals(response)){
                 Toast.makeText(Lock.this,"您已打开门锁，现在开始计费", Toast.LENGTH_SHORT).show();
-
+                Intent intent=new Intent(Lock.this, Hours.class);
+                intent.putExtra("house_ID",house_ID);
+                startActivity(intent);
             }else if("different".equals(response)){
                 Toast.makeText(Lock.this,"开锁码错误", Toast.LENGTH_SHORT).show();
             }else if("chaoshi".equals(response)){

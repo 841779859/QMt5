@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        android:id="@+id/uu3">
+        <Button
+            android:id="@+id/jia13"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/img04"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/uu8"
+            android:text="@string/wtxq"
+            android:textColor="#0A0A0A"
+            android:textSize="50px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/jia13"
+            android:layout_toEndOf="@+id/jia13"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="383dp"
+        android:layout_height="40dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/uu3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/uu4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cc3"
+            android:text="@string/yeth"
+            android:textSize="60px"
+            android:textColor="#3D3D3D"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="380dp"
+        android:background="#FFFFFF"
+        android:id="@+id/uu11"
+        android:layout_below="@+id/uu4"
+        android:layout_alignLeft="@+id/uu4"
+        android:layout_alignStart="@+id/uu4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cc1"
+            android:text="@string/yetha"
+            android:textSize="50px"
+            android:textColor="#3D3D3D"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_marginTop="470dp"
+        android:background="#DDDDDD" />
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/uu4"
+        android:layout_alignStart="@+id/uu4"
+        android:id="@+id/uu13">
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:id="@+id/jia6"
+            android:textSize="40px"
+            android:text="联系客服"
+            android:background="#FFE4E1"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>
+

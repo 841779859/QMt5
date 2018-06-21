@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        android:id="@+id/aa7">
+        <Button
+            android:id="@+id/jia11"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/img04"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx4"
+            android:text="@string/Wc"
+            android:textSize="50px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/jia11"
+            android:layout_toEndOf="@+id/jia11" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="383dp"
+        android:layout_height="40dp"
+        android:background="#FFFFFF"
+        android:id="@+id/aa12"
+        android:layout_below="@+id/aa7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx5"
+            android:text="@string/Wc"
+            android:textSize="60px"
+            android:textColor="#3D3D3D"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="470dp"
+        android:background="#FFFFFF"
+        android:id="@+id/aa10"
+        android:layout_below="@+id/aa12"
+        android:layout_alignRight="@+id/aa12"
+        android:layout_alignEnd="@+id/aa12">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx9"
+            android:text="@string/Wca"
+            android:textSize="50px"
+            android:textColor="#3D3D3D"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</RelativeLayout>

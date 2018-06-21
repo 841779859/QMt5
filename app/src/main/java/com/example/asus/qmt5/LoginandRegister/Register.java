@@ -41,7 +41,7 @@ public class Register extends AppCompatActivity {
     String repassword;
     String Tag="Register";
 
-    private String registerTarget=url+"/xiangmu/servlet/RegisterServlet";
+    private String registerTarget=url+"/servlet/RegisterServlet";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

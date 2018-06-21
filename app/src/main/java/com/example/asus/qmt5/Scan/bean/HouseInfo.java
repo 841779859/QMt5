@@ -3,7 +3,6 @@ package com.example.asus.qmt5.Scan.bean;
 public class HouseInfo {
 	private String house_ID;
 	private String house_name;
-	private String house_owner;
 	private String house_introduce;
 	private String house_addr;
 	private String house_position;
@@ -74,7 +73,7 @@ public class HouseInfo {
 
 
 
-	public HouseInfo(String house_ID, String house_name, String house_owner,
+	public HouseInfo(String house_ID, String house_name,
 					 String house_introduce, String house_addr, String house_position,
 					 String house_price, String house_phonenum, String house_img,
 					 String house_state, String house_img2, String house_img3,
@@ -82,7 +81,7 @@ public class HouseInfo {
 		super();
 		this.house_ID = house_ID;
 		this.house_name = house_name;
-		this.house_owner = house_owner;
+
 		this.house_introduce = house_introduce;
 		this.house_addr = house_addr;
 		this.house_position = house_position;
@@ -114,14 +113,6 @@ public class HouseInfo {
 
 	public void setHouse_name(String house_name) {
 		this.house_name = house_name;
-	}
-
-	public String getHouse_owner() {
-		return house_owner;
-	}
-
-	public void setHouse_owner(String house_owner) {
-		this.house_owner = house_owner;
 	}
 
 	public String getHouse_introduce() {

@@ -27,7 +27,7 @@ public class Handinput extends AppCompatActivity {
     private VerificationCodeView icv;
     private Button usehouse;
     String house_ID;
-    private String houseTarget=url+"/xiangmu/servlet/HouseServlet";
+    private String houseTarget=url+"/servlet/HouseServlet";
     String Tag="Handinput";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,7 +15,6 @@ public class Userinfo {
     public String email;//邮箱
     public String IDcardnum;//身份证号
     public int permission;// 实名认证
-    public String zhifubao;//支付宝
     public String touxiang;//头像
     public Userinfo(){//构造函数
         super();
@@ -105,13 +104,6 @@ public class Userinfo {
     }
     public void setPermission(int permission) {
         this.permission = permission;
-    }
-
-    public String getZhifubao() {
-        return zhifubao;
-    }
-    public void setZhifubao(String zhifubao) {
-        this.zhifubao = zhifubao;
     }
     public String getTouxiang() {
         return touxiang;

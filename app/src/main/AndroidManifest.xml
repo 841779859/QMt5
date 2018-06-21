@@ -98,6 +98,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".QiDong.QiDongActivity">
+
+        </activity>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="HFt5W5KoetwB0NiBXKQgD8iGSE78gayF" />
@@ -114,30 +118,55 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".Scan.ScanActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
         <activity android:name=".Scan.ShowHouseMessage" />
         <activity
             android:name=".Scan.zxing.app.CaptureActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Scan.Handinput" />
         <activity android:name=".Scan.Kaisuoma" />
-        <activity android:name=".BasicView.MainActivity" />
-        <activity android:name=".Personalcenter.personalcenter" />
         <activity android:name=".Map.map" />
+        <activity android:name=".Personalcenter.personalcenter" />
+        <activity android:name=".Lock.Lock" />
         <activity android:name=".SearchHome.searchhome" />
         <activity android:name=".LoginandRegister.Login_phonenumber" />
         <activity android:name=".LoginandRegister.Register" />
         <activity android:name=".LoginandRegister.Item" />
         <activity android:name=".LoginandRegister.Shimingrenzheng" />
-        <activity android:name=".LoginandRegister.Login_password" />
+        <activity android:name=".LoginandRegister.Login_password"></activity>
+        <activity android:name=".House.TuiFang" />
+        <activity android:name=".Pay.pay"></activity>
+        <activity android:name=".House.JiuDian" />
+        <activity android:name=".House.Hours" />
+        <activity android:name=".House.YuYue" />
+        <activity android:name=".House.List">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".House.Help"></activity>
+        <activity android:name=".House.DoorActivity" />
+        <activity android:name=".House.WeiXianActivity" />
+        <activity android:name=".House.WcActivity" />
+        <activity android:name=".House.Qb" />
+        <activity android:name=".House.Tk" />
+        <activity android:name=".House.Th" />
+        <activity android:name=".House.Yajin" />
+        <activity android:name=".House.Renzheng" />
+        <activity android:name=".House.Guize" />
+        <activity android:name=".House.Xieyi" />
+        <activity android:name=".House.Relation" />
+        <activity android:name=".House.Cz" />
+        <activity android:name=".House.Tuifangguize" />
+        <activity android:name=".House.Jifeiguize" />
+        <activity android:name=".House.Kflxfs" />
+        <activity android:name=".House.Ggswxg" />
+        <activity android:name=".House.Smrz" />
+        <activity android:name=".House.Ckrzzt" />
+        <activity android:name=".House.Rzcs" />
+        <activity android:name=".House.Rzshbgyy" />
+        <activity android:name=".House.Tstk" />
 
         <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
 
@@ -159,6 +188,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
+
 
 
     </application>

@@ -24,7 +24,7 @@
     <color name="gray">#888</color>
     <color name="dark_gray">#444</color>
     <color name="black">#000</color>
-
+    <color name="yuyue">#F08080</color>
     <!-- QR_Code -->
     <color name="viewfinder_mask">#60000000</color>
     <color name="result_view">#b0000000</color>

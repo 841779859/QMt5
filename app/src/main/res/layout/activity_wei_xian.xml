@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#3F51B5"
+        android:id="@+id/aa8">
+        <Button
+            android:id="@+id/jia10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/img04"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx10"
+            android:text="@string/Wei_Xian"
+            android:textColor="#0A0A0A"
+            android:textSize="50px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/jia10"
+            android:layout_toEndOf="@+id/jia10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="383dp"
+        android:layout_height="40dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/aa8"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/aa9">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx11"
+            android:text="@string/ys"
+            android:textSize="60px"
+            android:textColor="#3D3D3D"
+            android:layout_marginLeft="119dp"
+            android:layout_marginStart="119dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="250dp"
+        android:background="#FFFFFF"
+        android:id="@+id/aa11"
+        android:layout_below="@+id/aa9"
+        android:layout_alignLeft="@+id/aa9"
+        android:layout_alignStart="@+id/aa9">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx12"
+            android:text="@string/wpys"
+            android:textSize="50px"
+            android:textColor="#3D3D3D"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="125dp"
+        android:background="#FFFFFF"
+        android:id="@+id/aa13"
+        android:layout_below="@+id/aa11"
+        android:layout_alignLeft="@+id/aa11"
+        android:layout_alignStart="@+id/aa11">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xx13"
+            android:text="@string/wxts"
+            android:textSize="40px"
+            android:textColor="#FF4500"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_marginTop="470dp"
+        android:background="#DDDDDD" />
+    <RelativeLayout
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/aa11"
+        android:layout_alignStart="@+id/aa11"
+        android:id="@+id/aa14">
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:id="@+id/jia14"
+            android:textSize="40px"
+            android:text="联系在线客服"
+            android:background="#FFE4E1"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    </RelativeLayout>

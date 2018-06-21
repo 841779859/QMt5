@@ -4,6 +4,86 @@
     <string name="icon_text3">我</string>
     <string name="tip1">登录或注册则表示您同意</string>
     <string name="tip2">《使用条款》</string>
+    <string name="fang_name">房间名字</string>
+    <string name="rzsj">计时时间</string>
+    <string name="zfjs">退房</string>
+    <string name="ckxc">查看房间</string>
+    <string name="live_time">时间</string>
+    <string name="zf">价格</string>
+    <string name="pj">评价</string>
+    <string name="look">房间</string>
+    <string name="once">预约</string>
+    <string name="information">信息</string>
+    <string name="problem">问题</string>
+    <string name="yuyue">预约</string>
+    <string name="sousuo">搜索</string>
+    <string name="danjia">元/15分钟</string>
+
+
+    <string name="title">我的客服</string>
+    <string name="wyfy">我要反映</string>
+    <string name="doorbad">门锁损坏</string>
+    <string name="Wei_Xian">紧急事件</string>
+    <string name="Wc">卫生打扫</string>
+    <string name="cjwt">常见问题</string>
+    <string name="yjyye">押金与余额</string>
+    <string name="qb">押金与余额的区别</string>
+    <string name="tk">押金退款</string>
+    <string name="yeth">余额退还</string>
+    <string name="rhcz">如何充值</string>
+    <string name="rz">认证</string>
+    <string name="smrz">实名认证</string>
+    <string name="ckzt">查看认证状态</string>
+    <string name="rzcs">认证次数</string>
+    <string name="because">认证审核不通过原因</string>
+    <string name="ruler">住房相关规则</string>
+    <string name="tugz">退房规则</string>
+    <string name="jfgz">计费规则说明</string>
+    <string name="yhxy">用户协议</string>
+    <string name="tstk">提示条款</string>
+    <string name="lxwm">联系我们</string>
+    <string name="kflxfs">客服联系方式</string>
+    <string name="ggswxg">公共事务相关</string>
+    <string name="lxzxkf">联系客服</string>
+    <string name="dhkf">电话客服</string>
+    <string name="ys">物品遗失</string>
+    <string name="wpys">亲爱的主人，物品遗失请您第一时间联系我们的客服人员，我们会尽最大努力帮您寻找；</string>
+    <string name="wxts">温馨提示退房完毕后请检查随身物品，避免遗失</string>
+    <string name="wtxq">问题详情</string>
+    <string name="yyq">亲爱的主人，为了保证押金缴纳及退还的流畅性，本app将押金与充值余额分开。
+    1、押金为使用本app的保险金。押金可随时申请提现，原路返回。
+    2、余额为了使用本app用于支付住房订单，可随时进行充值，永不过期。
+    温馨提示：
+    余额可申请退还（余额退款后活动赠送余额无法提现并清零，请您三丝哦~）。余额提现需求，可与客服人员联系。</string>
+    <string name="yjtk">亲爱的主人，您可打开APP端，点击左下角小人头【我的钱包】-【我的押金】-【押金退款】，
+操作结束后，押金会在三个工作日内退还至您的原支付账户。</string>
+    <string name="yetha">亲爱的主人，请您确认不再用房的情况下，余额可申请退还，余额退还后活动赠送金额即刻
+    归零。您可在本页与在线客服联系（部分地区用户直接申请退余额）。退款会在3个工作室内原路退还至您的支付账户。</string>
+    <string name="rhcza">亲爱的主人，您可打开APP端，点击左下角小人头-【我的钱包】-【充值】-点选【充值金额】-
+【立即充值】进行充值即可，充值方式为微信、支付宝和Apple pay.</string>
+    <string name="smrza">亲爱的主人，注册后在认证步骤中提交信息，或点击左下角小人头像【个人头像】进入
+    个人信息页，在【称号】中选择【点我认证】。其中：大陆个人认证：注册后，在认证步骤中，输入姓名及中华人民共和国身份证号码并提交。
+    非大陆个人用户：注册后，在认证步骤中，输入您的姓名，证件号码及国籍（确保填写的信息与证件信息一致），并上传两张照片：
+    本人手持有效证件（台胞证，护照，港澳通行证）的证明合影照和有效证件正面照。</string>
+    <string name="ckzta">亲爱的主人，您提交认证信息后，我们会在24小时内将认证审核结果通知您。审核通过后，您在头像
+    下方会显示“认证用户”称号。您也可点击【我的】-【个人头像】，进入个人信息页，在【称号】中查询认证状态及进度。</string>
+    <string name="rzcsa">亲爱的主人，每日认证上限为5次，达到上限后，APP端会提示您“认证已打上限”
+当日不可进行认证，您可次日再次尝试。</string>
+    <string name="becausea">亲爱的主人，请您根据以下内容进行核实，如仍然没有解决您的问题，可随时与客服
+    联系，进人工审核流程。
+    1、请检查您认证时输入的姓名及相关证件号码是否正确。2、若没有中国身份证或多次提交实名认证信息失败。</string>
+    <string name="tuifangguizea">亲爱的主人，住房结束后请您仔细查看随时物品是否都带走，水电是否关闭，尽量节约资源并
+营造良好的环境。这样也方便我们工作人员对房间的打扫与维护，感谢您的配合。</string>
+    <string name="jfgza">亲爱的主人，我们的计费规则为：输入门牌号获取密码后即开始计费，
+    6元/半小时，不满半小时的按半小时计费，请您放心使用。</string>
+    <string name="tstka">1、提示条款  欢迎您与本app共同签署的用户服务协议（以下简称“本协议”）并使用我们提供
+    的相关线上服务（指通过其实际运营的互联网平台向您提供的平台网络服务）及线下服务（指您通过平台在移动设备上的APP
+        应用程序解锁房间门后进行有偿租赁的服务，以及我们提供的其他线下管理服务）。</string>
+    <string name="kflxfsa">亲爱的主人，遇到问题可随时拨打电话4001-xxxxxx,客服工作时间：早7:00~次日凌晨1:00.</string>
+    <string name="ggswxga">亲爱的主人，遇到公共事务咨询及合作，请您发邮件至20xxxxxxxx@.qq.com，求职请发邮件至21xxxxxxxx@.qq.com.</string>
+    <string name="Wca">亲爱的主人，用户使用完后，退房提交后，我们的工作人员会受到消息，在下次用户退房之后的半小时内
+会进行打扫房间，一般一间房间平均要打扫40分钟，我们会给您提供舒适健康的环境，期待您的入住。</string>
+
     <string name="xieyititle">ofo house用房协议（草案）</string>
     <string name="app_name">ofo house</string>
     <string name="xieyicontent1">欢迎来到ofo house。</string>
@@ -99,4 +179,7 @@
     <string name="sure">确定</string>
     <string name="chaoshi">该码只在5分钟内有效，若超时，请重新扫码获取</string>
     <string name="title_activity_updatecode">Updatecode</string>
+    <string name="saoma">扫码</string>
+    <string name="jump">验证开锁码</string>
+    <string name="zhifu">支付</string>
 </resources>

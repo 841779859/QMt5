@@ -27,7 +27,7 @@ public class ProduceActivity extends AppCompatActivity {
     private EditText tv_qrCode_content;//用来生成二维码图片内包含的内容
     private TextView tv_click;//按钮
     private ImageView iv_qr_code;//显示二维码的ImageView
-    private String houseTarget=url+"/xiangmu/servlet/QRCodeServlet";
+    private String houseTarget=url+"/servlet/QRCodeServlet";
     String Tag="ProduceActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

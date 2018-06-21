@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.asus.qmt5.Lock.Lock;
 import com.example.asus.qmt5.LoginandRegister.Login_password;
 import com.example.asus.qmt5.R;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -31,13 +34,22 @@ import static com.example.asus.qmt5.Data.data.url;
 public class Kaisuoma extends AppCompatActivity {
     String i="4";
     String Tag="kaisuoma";
-    String kaisuoTarget=url+"/xiangmu/servlet/suijiServlet";
+    String kaisuoTarget=url+"/servlet/suijiServlet";
     private TextView kaisuoma;
     String houseID;
+    private Button jump;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kaisuoma);
         kaisuoma=(TextView)findViewById(R.id.kaisuoma);
+        jump=(Button)findViewById(R.id.lockjump) ;
+        jump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Kaisuoma.this, Lock.class);
+                startActivity(intent);
+            }
+        });
         Intent intent=getIntent();
          houseID=intent.getStringExtra("codedata");
         Log.e(Tag, "houseID="+houseID);
