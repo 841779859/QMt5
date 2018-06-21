@@ -19,9 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.asus.qmt5.BasicView.MainActivity;
 import com.example.asus.qmt5.LoginandRegister.bean.LoginInfo;
-import com.example.asus.qmt5.LoginandRegister.bean.Userinfo;
+
 import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 import com.google.gson.Gson;
@@ -30,8 +29,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
 import okhttp3.Call;
 import okhttp3.MediaType;
 
@@ -65,9 +63,9 @@ public class Login_password extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        spf=PreferenceManager.getDefaultSharedPreferences(this);
-        editor=spf.edit();
+        editor=spf.edit();//初始化
         if(spf.getBoolean("main",true)){
-         Intent intent=new Intent(Login_password.this,MainActivity.class);
+         Intent intent=new Intent(Login_password.this,map.class);
          startActivity(intent);
          Login_password.this.finish();
         }
@@ -150,7 +148,7 @@ public class Login_password extends AppCompatActivity {
 
                     //获取phoneid
                     phoneID = Secure.getString(getApplicationContext().getContentResolver(),//getContext().getContentResolver(),
-                            Secure.ANDROID_ID);
+                            Secure.ANDROID_ID);//getContext().getContentResolver()返回的是ContentResolver ，ContentResolver负责获取ContentProvider提供的数据
                     //获取登陆时间
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     Date date = new Date(System.currentTimeMillis());

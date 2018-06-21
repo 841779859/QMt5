@@ -28,8 +28,9 @@ import com.baidu.ocr.sdk.model.IDCardResult;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.baidu.ocr.ui.camera.CameraNativeHelper;
 import com.baidu.ocr.ui.camera.CameraView;
-import com.example.asus.qmt5.BasicView.MainActivity;
+
 import com.example.asus.qmt5.LoginandRegister.bean.Userinfo;
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 
 import com.google.gson.Gson;
@@ -93,7 +94,7 @@ public class  Shimingrenzheng extends AppCompatActivity {
          jump.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Intent intent=new Intent(Shimingrenzheng.this,MainActivity.class);
+                 Intent intent=new Intent(Shimingrenzheng.this,map.class);
                  startActivity(intent);
              }
          });
@@ -228,7 +229,7 @@ public class  Shimingrenzheng extends AppCompatActivity {
     }
 
     private void initLicense() {
-        CameraNativeHelper.init(this, OCR.getInstance().getLicense(),
+        CameraNativeHelper.init(this, OCR.getInstance().getLicense(),//加载本地库异常回调
                 new CameraNativeHelper.CameraNativeInitCallback() {
                     @Override
                     public void onError(int errorCode, Throwable e) {
@@ -373,7 +374,7 @@ public class  Shimingrenzheng extends AppCompatActivity {
               if(response!=null){
                   if("success".equals(response)){
                       Toast.makeText(Shimingrenzheng.this,"您已实名认证成功", Toast.LENGTH_SHORT).show();
-                      Intent intent=new Intent(Shimingrenzheng.this,MainActivity.class);
+                      Intent intent=new Intent(Shimingrenzheng.this,map.class);
                       startActivity(intent);
                   }else{
                       Toast.makeText(Shimingrenzheng.this,"认证失败，请重试", Toast.LENGTH_SHORT).show();

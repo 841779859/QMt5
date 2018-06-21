@@ -10,7 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.asus.qmt5.BasicView.MainActivity;
+
+import com.example.asus.qmt5.Map.map;
 import com.example.asus.qmt5.R;
 import com.example.asus.qmt5.Scan.bean.HouseInfo;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -61,7 +62,7 @@ public class ShowHouseMessage extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent  intent=new Intent(ShowHouseMessage.this,MainActivity.class);
+                Intent  intent=new Intent(ShowHouseMessage.this,map.class);
                 startActivity(intent);
             }
         });

@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 
+import com.example.asus.qmt5.Map.map;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -30,20 +32,18 @@ public class PermissionManager {
 
     /**
      * 权限申请
-     *
      * @param context             Activity
      * @param desc                再次申请权限的提示语
      * @param requestCode
-     * @param permissionsListener
+     * @param map
      * @param permissions
      */
     public static void requestPermission(Activity context,
                                          String desc,
                                          int requestCode,
-                                         PermissionsResultListener permissionsListener,
-                                         String... permissions) {
+                                         map map , String... permissions) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mListenerMap.put(requestCode, permissionsListener);
+            mListenerMap.put(requestCode, map);
             if (checkEachSelfPermission(context, permissions)) {
                 requestEachPermission(context, desc, permissions, requestCode);
             } else {

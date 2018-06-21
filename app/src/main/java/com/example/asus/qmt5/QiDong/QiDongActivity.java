@@ -22,8 +22,8 @@ public class QiDongActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qi_dong);
         nextBtn=(Button)findViewById(R.id.next_btn);
-       final Handler handler=new Handler(){
-           public  void handleMessage(Message msg){
+       final Handler handler=new Handler(){//创建handler对象
+           public  void handleMessage(Message msg){//重写方法处理界面跳过的数字显示
 
                if(msg.what==-9){
                   nextBtn.setText("跳过"+i);
@@ -34,16 +34,16 @@ public class QiDongActivity extends AppCompatActivity {
 
        };
 
-        new Thread(new Runnable(){public void run(){
+        new Thread(new Runnable(){public void run(){//创建线程子线程
             for(;i>0;i--){
-                handler.sendEmptyMessage(-9);
+                handler.sendEmptyMessage(-9);//发送空信息
             if(i<=0){
                 flag=false;
                 break;
             }
 
                try{
-                    Thread.sleep(1000);
+                    Thread.sleep(1000);//线程休眠1s
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }
@@ -51,14 +51,14 @@ public class QiDongActivity extends AppCompatActivity {
             handler.sendEmptyMessage(-8);
 
         }
-        }).start();
-        new Handler().postDelayed(new Runnable() {
+        }).start();//开启线程
+        new Handler().postDelayed(new Runnable() {//延迟发送Runnable对象
             @Override
             public void run() {
                 if(isclick==false) {
                     Intent intent = new Intent(QiDongActivity.this, Login_password.class);
                     startActivity(intent);
-                    QiDongActivity.this.finish();
+                    QiDongActivity.this.finish();//关闭活动
                 }
             }
         },1000*5);

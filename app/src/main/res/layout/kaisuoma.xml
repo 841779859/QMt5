@@ -34,12 +34,20 @@
             android:gravity="center"
 
             android:textSize="60dp" />
+
     </LinearLayout>
-   <!-- <TextView
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lockjump"
+        android:text="@string/jump"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:textColor="@color/colorAccent"
-        android:text="@string/chaoshi"/>
-        -->
+        android:layout_marginLeft="20dp"
+        android:text="@string/chaoshi"
+        android:textColor="@color/colorAccent" />
+
 </LinearLayout>

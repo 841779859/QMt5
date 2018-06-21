@@ -98,6 +98,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".QiDong.QiDongActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="HFt5W5KoetwB0NiBXKQgD8iGSE78gayF" />
@@ -114,24 +121,15 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".Scan.ScanActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
         <activity android:name=".Scan.ShowHouseMessage" />
         <activity
             android:name=".Scan.zxing.app.CaptureActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Scan.Handinput" />
         <activity android:name=".Scan.Kaisuoma" />
-        <activity android:name=".BasicView.MainActivity" />
+        <activity android:name=".Map.map"></activity>
         <activity android:name=".Personalcenter.personalcenter" />
-        <activity android:name=".Map.map" />
+        <activity android:name=".Lock.Lock"></activity>
         <activity android:name=".SearchHome.searchhome" />
         <activity android:name=".LoginandRegister.Login_phonenumber" />
         <activity android:name=".LoginandRegister.Register" />
@@ -160,7 +158,7 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-
+        <activity android:name=".Pay.pay"></activity>
     </application>
 
 </manifest>

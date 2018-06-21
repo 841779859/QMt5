@@ -99,4 +99,6 @@
     <string name="sure">确定</string>
     <string name="chaoshi">该码只在5分钟内有效，若超时，请重新扫码获取</string>
     <string name="title_activity_updatecode">Updatecode</string>
+    <string name="saoma">扫码</string>
+    <string name="jump">验证开锁码</string>
 </resources>
