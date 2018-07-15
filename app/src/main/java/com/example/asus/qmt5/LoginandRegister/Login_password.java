@@ -80,7 +80,7 @@ public class Login_password extends AppCompatActivity {
             useitem = (TextView) findViewById(R.id.tv_termOfService3);
             login = (Button) findViewById(R.id.password_common_login);
             remember = (CheckBox) findViewById(R.id.remember);
-            sp = this.getSharedPreferences("userInfo", MODE_WORLD_READABLE);
+            sp = this.getSharedPreferences("userInfo",  MODE_PRIVATE);
 
             back.setOnClickListener(new View.OnClickListener() {
                 @Override

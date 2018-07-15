@@ -1,4 +1,12 @@
 <resources>
+    <string name="action_settings">切换搜索</string>
+    <string name="action_settings2">ip地址更换</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="zfjl">订单记录</string>
+    <string name="wdpj">检查更新</string>
+    <string name="fwyd">退出登录</string>
+    <string name="cslb">切换</string>
     <string name="icon_text1">搜索</string>
     <string name="icon_text2">地图</string>
     <string name="icon_text3">我</string>
@@ -182,4 +190,9 @@
     <string name="saoma">扫码</string>
     <string name="jump">验证开锁码</string>
     <string name="zhifu">支付</string>
+    <string name="label_cancel">取消</string>
+    <string name="label_ok">确定</string>
+    <string name="permission_title_rationale">权限需求</string>
+    <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
+    <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
 </resources>

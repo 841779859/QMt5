@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/QMt5.iml" filepath="$PROJECT_DIR$/QMt5.iml" />
+      <module fileurl="file://D:\workespace_android\QMzz\QMt5.iml" filepath="D:\workespace_android\QMzz\QMt5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/QMzz.iml" filepath="$PROJECT_DIR$/.idea/QMzz.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ocr_ui/ocr_ui.iml" filepath="$PROJECT_DIR$/ocr_ui/ocr_ui.iml" />
     </modules>

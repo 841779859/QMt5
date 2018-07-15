@@ -6,9 +6,17 @@ android {
         applicationId "com.example.asus.qmt5"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+        ndk {
+            abiFilters "armeabi"
+        }
     }
     sourceSets {
         main {
@@ -21,11 +29,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    compile('com.kevin:crop:1.0.2') {
+        // 如果已经引入 support:appcompat-v7 可以加上这句话
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+    // butter knife
+    compile 'com.jakewharton:butterknife:7.0.1'
+    // OKHttp
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:26.1.0'
     testImplementation 'junit:junit:4.12'
@@ -35,6 +51,7 @@ dependencies {
     implementation files('libs/MobTools-2017.1213.1552.jar')
     implementation files('libs/SMSSDK-3.1.0.jar')
     compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.ansen.http:okhttpencapsulation:1.0.1'
     compile 'com.google.code.gson:gson:2.7'
     implementation files('libs/ocr-sdk.jar')
     compile project(path: ':ocr_ui')
@@ -45,5 +62,4 @@ dependencies {
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
-
 }

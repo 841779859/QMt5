@@ -92,6 +92,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".Personalcenter.KevinApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -119,12 +120,24 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".Scan.ShowHouseMessage" />
+        <activity android:name=".Personalcenter.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".Personalcenter.activity.CropActivity"/>
         <activity
             android:name=".Scan.zxing.app.CaptureActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Scan.Handinput" />
         <activity android:name=".Scan.Kaisuoma" />
-        <activity android:name=".Map.map" />
+        <activity android:name=".Personalcenter.History"></activity>
+        <activity android:name=".Map.map">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".Personalcenter.personalcenter" />
         <activity android:name=".Lock.Lock" />
         <activity android:name=".SearchHome.searchhome" />
@@ -132,20 +145,14 @@
         <activity android:name=".LoginandRegister.Register" />
         <activity android:name=".LoginandRegister.Item" />
         <activity android:name=".LoginandRegister.Shimingrenzheng" />
-        <activity android:name=".LoginandRegister.Login_password"></activity>
+        <activity android:name=".LoginandRegister.Login_password" />
         <activity android:name=".House.TuiFang" />
-        <activity android:name=".Pay.pay"></activity>
+        <activity android:name=".Pay.pay" />
         <activity android:name=".House.JiuDian" />
         <activity android:name=".House.Hours" />
         <activity android:name=".House.YuYue" />
-        <activity android:name=".House.List">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".House.Help"></activity>
+        <activity android:name=".House.List"></activity>
+        <activity android:name=".House.Help" />
         <activity android:name=".House.DoorActivity" />
         <activity android:name=".House.WeiXianActivity" />
         <activity android:name=".House.WcActivity" />
@@ -189,8 +196,7 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-
-
+        <activity android:name=".Data.IpQH"></activity>
     </application>
 
 </manifest>
